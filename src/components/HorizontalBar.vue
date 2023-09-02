@@ -44,7 +44,7 @@ const renderChart = () => {
         show: false
       },
       axisLabel: {
-        color: '#4f6085'
+        color: '#22a2c3'
       }
     },
     grid: {
