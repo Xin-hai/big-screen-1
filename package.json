@@ -9,6 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@types/node": "^20.5.8",
+    "axios": "^1.4.0",
+    "echarts": "^5.4.2",
+    "path": "^0.12.7",
     "vue": "^3.3.4"
   },
   "devDependencies": {

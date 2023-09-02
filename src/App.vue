@@ -35,6 +35,19 @@ import TotalData from "./components/TotalData.vue";
 import VerticalBar from "./components/VerticalBar.vue";
 import WordCloud from "./components/WordCloud.vue";
 
+import {ref} from "vue";
+import {getVisualization} from './api/visualization.js'
+
+const data = ref(null)
+const loadData = async ()=> {
+  data.value = await getVisualization()
+  console.log(data.value);
+}
+
+
+setInterval(()=> {
+  loadData()
+}, 3000)
 </script>
 
 <style lang="scss" scoped>
