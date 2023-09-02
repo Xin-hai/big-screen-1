@@ -1,9 +1,10 @@
 <template>
-  <div class="bg-[url('./assets/imgs/bg-3.jpg')] bg-cover bg-center
-   h-screen text-white p-5 flex overflow-hidden" v-if="data">
+  <div class=" bg-cover bg-center
+   h-screen text-white p-5 flex overflow-hidden" v-if="data" :style="{ backgroundImage: `url( ${bg} )` }">
     <div class="flex-1 mr-5 bg-opacity-50 bg-slate-800 p-3 flex flex-col">
+
       <!--      横向柱状图-->
-      <HorizontalBar class="h-1/3 box-border pb-4" :data="data.regionData"/>
+      <HorizontalBar class="h-1/3 box-border pb-4" :data="data.regionData">  <button @click="change" class="text-lime-500">背景切换</button></HorizontalBar>
       <RadarBar class="h-1/3 box-border pb-4"/>
       <!--      雷达图-->
       <Relation class="h-1/3 "/>
@@ -35,9 +36,27 @@ import RingBar from "./components/RingBar.vue";
 import TotalData from "./components/TotalData.vue";
 import VerticalBar from "./components/VerticalBar.vue";
 import WordCloud from "./components/WordCloud.vue";
+import bg1 from './assets/imgs/bg-1.jpg'
+import bg2 from './assets/imgs/bg-2.jpg'
+import bg3 from './assets/imgs/bg-3.jpg'
+import bg4 from './assets/imgs/bg-4.jpg'
+import bg5 from './assets/imgs/bg-5.jpg'
 
 import {ref} from "vue";
 import {getVisualization} from './api/visualization.js'
+
+let bg = bg1
+let bgImages = [bg1,bg2,bg3,bg4,bg5]
+const change = ()=> {
+  if(bg !== bg5){
+    let index = bgImages.indexOf(bg) + 1
+    bg = bgImages[index]
+  }else{
+    bg = bg1
+  }
+}
+
+
 
 const data = ref(null)
 const loadData = async ()=> {
@@ -48,7 +67,7 @@ console.log(data)
 // loadData()
 setInterval(()=> {
   loadData()
-}, 3000)
+}, 500)
 </script>
 
 <style lang="scss" scoped>
