@@ -25,8 +25,44 @@ onMounted(()=> {
   renderChart()
 })
 
+const randomRgb = () => {
+  const r = Math.floor(Math.random() * 255)
+  const g = Math.floor(Math.random() * 255)
+  const b = Math.floor(Math.random() * 255)
+  return `rgb(${r},${g},${b})`
+}
+
 const renderChart = () => {
-  const options = {}
+  const options = {
+    series: [
+      {
+        // 此配置需参考 echarts-wordcloud
+        type: 'wordCloud',
+        left: 'center',
+        top: 'center',
+        width: '85%',
+        height: '85%',
+        right: null,
+        bottom: null,
+        sizeRange: [8, 48],
+        rotationRange: [0, 0],
+        gridSize: 6,
+        layoutAnimation: true,
+        textStyle: {
+          color: randomRgb
+        },
+        emphasis: {
+          textStyle: {
+            fontWeight: 'bold',
+            color: '#000',
+            textShadowBlur: 1,
+            textShadowColor: 'blue'
+          }
+        },
+        data: props.data.datas
+      }
+    ]
+  }
   myChart.setOption(options)
 }
 
