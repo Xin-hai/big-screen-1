@@ -68,7 +68,7 @@ console.log(data)
 // loadData()
 setInterval(()=> {
   loadData()
-}, 500)
+}, 3000)
 </script>
 
 <style lang="scss" scoped>
