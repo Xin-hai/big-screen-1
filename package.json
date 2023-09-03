@@ -11,6 +11,7 @@
   "dependencies": {
     "@types/node": "^20.5.8",
     "axios": "^1.4.0",
+    "countup.js": "^2.6.2",
     "echarts": "^5.4.2",
     "echarts-wordcloud": "^2.1.0",
     "path": "^0.12.7",
