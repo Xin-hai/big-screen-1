@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>【云端报警风险】</div>
-    <div ref="target" class="w-full h-full border border-red-800"></div>
+    <div ref="target" class="w-full h-full"></div>
   </div>
 </template>
 

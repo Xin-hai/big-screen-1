@@ -7,7 +7,7 @@
       <HorizontalBar class="h-1/3 box-border pb-4" :data="data.regionData">  <button @click="change" class="text-lime-500">背景切换</button></HorizontalBar>
       <RadarBar class="h-1/3 box-border pb-4" :data="data.riskData"/>
       <!--      雷达图-->
-      <Relation class="h-1/3 "/>
+      <Relation class="h-1/3" />
       <!--      关系图-->
     </div>
     <div class="w-1/2 mr-5 flex flex-col">
@@ -20,7 +20,7 @@
       <!--      竖向柱状图 -->
       <VerticalBar class="h-1/3 box-border pb-4"  :data="data.serverData"/>
       <!--      环形图 -->
-      <RingBar class="h-1/3 box-border pb-4"/>
+      <RingBar class="h-1/3 box-border pb-4" :data="data.abnormalData"/>
       <!--      文档云图 -->
       <WordCloud class="h-1/3 box-border pb-4"/>
     </div>
