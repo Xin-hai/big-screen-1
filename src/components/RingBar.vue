@@ -31,8 +31,10 @@ const getSeriesData = () => {
     series.push({
       name: item.name,
       type: 'pie',
-      clockWise: false,
-      hoverAnimation: false,
+      clockwise: false,
+      emphasis: {
+        scale: false
+      },
       radius: [73 - index * 15 + '%', 68 -index * 15 + '%'],
       center: ['55%', '55%'],
       label: {
@@ -52,7 +54,9 @@ const getSeriesData = () => {
           tooltip: {
             show: false
           },
-          hoverAnimation: false
+          emphasis: {
+            scale: false
+          },
         }
       ]
     })
@@ -62,8 +66,10 @@ const getSeriesData = () => {
       type: 'pie',
       silent: true,
       z: 1,
-      clockWise: false,
-      hoverAnimation: false,
+      clockwise: false,
+      emphasis: {
+        scale: false
+      },
       radius: [73 - index * 15 + '%', 68 -index * 15 + '%'],
       center: ['55%', '55%'],
       label: {
@@ -79,7 +85,9 @@ const getSeriesData = () => {
           tooltip: {
             show: false,
           },
-          hoverAnimation: false
+          emphasis: {
+            scale: false
+          },
         },
         {
           value: 2.5,
@@ -90,7 +98,9 @@ const getSeriesData = () => {
           tooltip: {
             show: false,
           },
-          hoverAnimation: false
+          emphasis: {
+            scale: false
+          },
         }
       ]
     })
