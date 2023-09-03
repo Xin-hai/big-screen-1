@@ -5,7 +5,7 @@
 
       <!--      横向柱状图-->
       <HorizontalBar class="h-1/3 box-border pb-4" :data="data.regionData">  <button @click="change" class="text-lime-500">背景切换</button></HorizontalBar>
-      <RadarBar class="h-1/3 box-border pb-4"/>
+      <RadarBar class="h-1/3 box-border pb-4" :data="data.riskData"/>
       <!--      雷达图-->
       <Relation class="h-1/3 "/>
       <!--      关系图-->
@@ -48,7 +48,8 @@ import {getVisualization} from './api/visualization.js'
 let bg = bg1
 let bgImages = [bg1,bg2,bg3,bg4,bg5]
 const change = ()=> {
-  if(bg !== bg5){
+  let {length} = bgImages
+  if(bg !== bgImages[length-1]){
     let index = bgImages.indexOf(bg) + 1
     bg = bgImages[index]
   }else{

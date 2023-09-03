@@ -54,7 +54,6 @@ const renderChart = () => {
       left: 0,
       containLabel: true
     },
-    // 核心配置
     series: [
       {
         type: 'bar',
@@ -84,9 +83,7 @@ const renderChart = () => {
   myChart.setOption(options)
 }
 
-watch(()=>props.data,()=> {
-  renderChart()
-})
+watch(()=>props.data, renderChart)
 
 </script>
 

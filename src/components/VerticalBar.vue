@@ -16,8 +16,6 @@ const props = defineProps({
   }
 })
 
-console.log(props.data)
-
 let myChart = null
 const target = ref(null)
 
@@ -82,9 +80,7 @@ const renderChart = () => {
   myChart.setOption(options)
 }
 
-watch(()=>props.data,()=> {
-  renderChart()
-})
+watch(()=>props.data,renderChart)
 
 </script>
 
