@@ -6,6 +6,7 @@
 
 <script setup>
 import * as echarts from 'echarts';
+import mapJson from '@/assets/mapData/china.json'
 import {onMounted, ref, watch} from "vue";
 
 const props = defineProps({
@@ -19,6 +20,7 @@ let myChart = null
 const target = ref(null)
 
 onMounted(() => {
+  echarts.registerMap('china', mapJson)
   myChart = echarts.init(target.value)
   renderChart()
 })
@@ -71,6 +73,39 @@ const renderChart = () => {
         right: '2%',
         bottom: '10%',
         width: '20%'
+      },
+      geo: {
+        show: true,
+        map: 'china',
+        roam: 'scale',
+        zoom: 0.85,
+        center: [113.83531246,34.0267395887],
+        itemStyle: {
+            borderColor: 'rgba(147, 235, 248, 1)',
+            borderWidth: 1,
+            areaColor: {
+              type: 'radial',
+              x: 0.5,
+              y: 0.5,
+              r: 0.5,
+              colorStops: [
+                {
+                  offset: 0,
+                  color: 'rgba(147,235,248,0)'
+                },
+                {
+                  offset: 1,
+                  color: 'rgba(147,235,248,0.2)'
+                }
+              ]
+            },
+        },
+        emphasis: {
+          itemStyle: {
+            areaColor: '#389BB7',
+            borderWidth: 1
+          }
+        }
       }
     },
     options: [],
@@ -143,7 +178,7 @@ const renderChart = () => {
           type: 'bar',
           zlevel: 1.5,
           itemStyle: {
-            color: props.data.colors[index+1]
+            color: props.data.colors[index]
           },
           data: props.data.categoryData[item].map((item)=> item.value)
         }
