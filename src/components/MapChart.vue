@@ -30,7 +30,7 @@ const renderChart = () => {
   const options = {
     timeline: {
       data: props.data.voltageLevel,
-      // axisType: 'category',
+      axisType: 'category',
       autoPlay: true,
       // 根据数据刷新定
       playInterval: 3000,

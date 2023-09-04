@@ -59,6 +59,7 @@ const loadData = async ()=> {
   data.value = await getVisualization()
 }
 
+loadData()
 setInterval(()=> {
   loadData()
 }, 3000)
