@@ -181,6 +181,28 @@ const renderChart = () => {
             color: props.data.colors[index]
           },
           data: props.data.categoryData[item].map((item)=> item.value)
+        },
+        {
+          type: 'effectScatter',
+          coordinateSystem: 'geo',
+          data: props.data.topData[item],
+          symbolSize: function(value){
+            return value[2] / 6
+          },
+          showEffectOn: 'render',
+          rippleEffect: {
+            brushType: 'stroke'
+          },
+          label: {
+            formatter: '{b}',
+            position: 'left',
+            show: true
+          },
+          itemStyle: {
+            color: props.data.colors[index],
+            shadowBlur: 2,
+            shadowColor: props.data.colors[index]
+          }
         }
       ]
     })

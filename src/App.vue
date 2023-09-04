@@ -1,8 +1,7 @@
 <template>
   <div class=" bg-cover bg-center
-   h-screen text-white p-5 flex overflow-hidden" v-if="data" :style="{ backgroundImage: `url( ${bg} )` }">
-    <div class="flex-1 mr-5 bg-opacity-50 bg-slate-800 p-3 flex flex-col">
-
+   h-screen text-white p-2 flex overflow-hidden" v-if="data" :style="{ backgroundImage: `url( ${bg} )` }">
+    <div class="flex-1 mr-2 bg-opacity-50 bg-slate-800 p-3 flex flex-col">
       <!--      横向柱状图-->
       <HorizontalBar class="h-1/3 box-border pb-4" :data="data.regionData">  <button @click="change" class="text-lime-500">背景切换</button></HorizontalBar>
       <RadarBar class="h-1/3 box-border pb-4" :data="data.riskData"/>
@@ -10,19 +9,19 @@
       <Relation class="h-1/3" :data="data.relationData"/>
       <!--      关系图-->
     </div>
-    <div class="w-1/2 mr-5 flex flex-col">
+    <div class="w-1/2 mr-2 flex flex-col">
       <!--      数据总览图-->
       <TotalData class="opacity-50 bg-slate-800 p-3 " :data="data.totalData"/>
       <!--      地图可视化-->
-      <MapChart class="opacity-50 bg-slate-800 p-3 mt-4 flex-1" :data="data.mapData"/>
+      <MapChart class="opacity-50 bg-slate-800 p-3 mt-2 flex-1" :data="data.mapData"/>
     </div>
     <div class="flex-1 bg-opacity-50 bg-slate-800 p-3 flex flex-col">
       <!--      竖向柱状图 -->
-      <VerticalBar class="h-1/3 box-border pb-4"  :data="data.serverData"/>
+      <VerticalBar class="h-1/3 box-border pb-3"  :data="data.serverData"/>
       <!--      环形图 -->
       <RingBar class="h-1/3 box-border pb-4" :data="data.abnormalData"/>
       <!--      文档云图 -->
-      <WordCloud class="h-1/3 box-border pb-4" :data="data.wordCloudData"/>
+      <WordCloud class="h-1/3 box-border " :data="data.wordCloudData"/>
     </div>
   </div>
 </template>
@@ -63,12 +62,10 @@ const data = ref(null)
 const loadData = async ()=> {
   data.value = await getVisualization()
 }
-console.log(data)
 
-// loadData()
 setInterval(()=> {
   loadData()
-}, 3000)
+}, 2000)
 </script>
 
 <style lang="scss" scoped>
