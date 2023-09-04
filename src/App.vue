@@ -7,7 +7,7 @@
       <HorizontalBar class="h-1/3 box-border pb-4" :data="data.regionData">  <button @click="change" class="text-lime-500">背景切换</button></HorizontalBar>
       <RadarBar class="h-1/3 box-border pb-4" :data="data.riskData"/>
       <!--      雷达图-->
-      <Relation class="h-1/3" />
+      <Relation class="h-1/3" :data="data.relationData"/>
       <!--      关系图-->
     </div>
     <div class="w-1/2 mr-5 flex flex-col">
