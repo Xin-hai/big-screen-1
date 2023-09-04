@@ -7,7 +7,7 @@
 <script setup>
 import * as echarts from 'echarts';
 import mapJson from '@/assets/mapData/china.json'
-import {onMounted, ref, watch} from "vue";
+import { onMounted, ref, watch} from "vue";
 
 const props = defineProps({
   data: {
@@ -18,6 +18,7 @@ const props = defineProps({
 
 let myChart = null
 const target = ref(null)
+
 
 onMounted(() => {
   echarts.registerMap('china', mapJson)

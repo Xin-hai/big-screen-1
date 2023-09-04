@@ -1,9 +1,9 @@
 <template>
   <div class=" bg-cover bg-center
-   h-screen text-white p-2 flex overflow-hidden" v-if="data" :style="{ backgroundImage: `url( ${bg} )` }">
+   h-screen text-white p-2 flex overflow-hidden" v-if="data" :style="{ backgroundImage: `url( ${currentBg} )` }">
     <div class="flex-1 mr-2 bg-opacity-50 bg-slate-800 p-3 flex flex-col">
       <!--      横向柱状图-->
-      <HorizontalBar class="h-1/3 box-border pb-4" :data="data.regionData">  <button @click="change" class="text-lime-500">背景切换</button></HorizontalBar>
+      <HorizontalBar class="h-1/3 box-border pb-4" :data="data.regionData">  <change-bg /> </HorizontalBar>
       <RadarBar class="h-1/3 box-border pb-4" :data="data.riskData"/>
       <!--      雷达图-->
       <Relation class="h-1/3" :data="data.relationData"/>
@@ -24,6 +24,15 @@
       <WordCloud class="h-1/3 box-border " :data="data.wordCloudData"/>
     </div>
   </div>
+  <div v-else :style="{backgroundImage: `url( ${currentBg} )`}" class=" bg-cover bg-center h-screen text-white p-2 flex overflow-hidden
+  text-6xl justify-center items-center flex-row">
+    <n-space class="flex flex-row">
+      <span>加载中请稍后</span>
+      <n-spin size="small"  stroke="white"/>
+      <n-spin size="small"  stroke="white"/>
+      <n-spin size="small"  stroke="white"/>
+    </n-space>
+  </div>
 </template>
 
 <script setup>
@@ -35,28 +44,15 @@ import RingBar from "./components/RingBar.vue";
 import TotalData from "./components/TotalData.vue";
 import VerticalBar from "./components/VerticalBar.vue";
 import WordCloud from "./components/WordCloud.vue";
-import bg1 from './assets/imgs/bg-1.jpg'
-import bg2 from './assets/imgs/bg-2.jpg'
-import bg3 from './assets/imgs/bg-3.jpg'
-import bg4 from './assets/imgs/bg-4.jpg'
-import bg5 from './assets/imgs/bg-5.jpg'
+import bg1 from '@/assets/imgs/bg-1.jpg';
+import {NSpin, NSpace} from 'naive-ui'
 
-import {ref} from "vue";
+import {provide, ref} from "vue";
 import {getVisualization} from './api/visualization.js'
+import ChangeBg from "@/components/ChangeBg.vue";
 
-let bg = bg1
-let bgImages = [bg1,bg2,bg3,bg4,bg5]
-const change = ()=> {
-  let {length} = bgImages
-  if(bg !== bgImages[length-1]){
-    let index = bgImages.indexOf(bg) + 1
-    bg = bgImages[index]
-  }else{
-    bg = bg1
-  }
-}
-
-
+let currentBg = ref(bg1)
+provide('changeBackground', currentBg)
 
 const data = ref(null)
 const loadData = async ()=> {
@@ -65,7 +61,7 @@ const loadData = async ()=> {
 
 setInterval(()=> {
   loadData()
-}, 2000)
+}, 3000)
 </script>
 
 <style lang="scss" scoped>
