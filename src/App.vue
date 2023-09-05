@@ -4,8 +4,9 @@
     <div class="flex-1 mr-2 bg-opacity-50 bg-slate-800 p-3 flex flex-col">
       <!--      横向柱状图-->
       <HorizontalBar class="h-1/3 box-border pb-4" :data="data.regionData">  <change-bg /> </HorizontalBar>
-      <RadarBar class="h-1/3 box-border pb-4" :data="data.riskData"/>
-      <!--      雷达图-->
+      <!--      环形图 -->
+      <RingBar class="h-1/3 box-border pb-4" :data="data.abnormalData"/>
+
       <Relation class="h-1/3" :data="data.relationData"/>
       <!--      关系图-->
     </div>
@@ -18,8 +19,8 @@
     <div class="flex-1 bg-opacity-50 bg-slate-800 p-3 flex flex-col">
       <!--      竖向柱状图 -->
       <VerticalBar class="h-1/3 box-border pb-3"  :data="data.serverData"/>
-      <!--      环形图 -->
-      <RingBar class="h-1/3 box-border pb-4" :data="data.abnormalData"/>
+      <!--      雷达图-->
+      <RadarBar class="h-1/3 box-border pb-4" :data="data.riskData"/>
       <!--      文档云图 -->
       <WordCloud class="h-1/3 box-border " :data="data.wordCloudData"/>
     </div>
